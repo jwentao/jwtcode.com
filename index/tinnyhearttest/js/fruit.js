@@ -26,7 +26,7 @@ fruitObj.prototype.init=function(){
 fruitObj.prototype.draw=function(){
 	for(var i=0;i<this.num;i++){
 		if(this.alive[i]){
-			console.log(this.alive[i]);
+			//console.log(this.alive[i]);
 			var pic;
 			if(this.fruitType[i]=="blue"){
 				pic=this.blue;

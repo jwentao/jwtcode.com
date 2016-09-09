@@ -163,8 +163,10 @@ function onMouseMove(e){
 	{
 		mx=e.offsetX==undefined ? e.layerX:e.offsetX;
 		my=e.offsetY==undefined ? e.layerY:e.offsetY;
-		//console.log("x"+mx); 
-		//console.log("y"+my); 
+		mx=e.pageX;
+		my=e.pageY;
+		console.log("x"+mx); 
+		console.log("y"+my); 
 	}
 	}
 }
