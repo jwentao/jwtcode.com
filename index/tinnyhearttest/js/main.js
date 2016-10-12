@@ -127,7 +127,7 @@ function init(){
 }
 function gameloop(){
 	requestAnimationFrame(gameloop);
-	
+	//setTimeout(gameloop,20);
 	var now=Date.now();
 	deltaTime=now-lastTime;
 	
@@ -163,10 +163,8 @@ function onMouseMove(e){
 	{
 		mx=e.offsetX==undefined ? e.layerX:e.offsetX;
 		my=e.offsetY==undefined ? e.layerY:e.offsetY;
-		mx=e.pageX;
-		my=e.pageY;
-		console.log("x"+mx); 
-		console.log("y"+my); 
+		//console.log("x"+mx); 
+		//console.log("y"+my); 
 	}
 	}
 }
