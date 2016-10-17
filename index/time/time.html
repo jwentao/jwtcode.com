@@ -6,15 +6,7 @@
 	</head>
 	<body>
 		<canvas id="can" width="1024" height="798" style="border: 1px gray solid; display: block;margin: 0 auto;"></canvas>
-		<script type="text/javascript">
-			window.onload = function(){
-				var can = document.getElementById('can');
-				if(can.getContext('2d')){
-					var ctx = can.getContext('2d');
-				}else{
-					alert('您的浏览器不支持canvas标签，请更换浏览器后再尝试')
-				}
-			}
-		</script>
+		<script src="js/comm.js"></script>
+		<script src="js/digit.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
