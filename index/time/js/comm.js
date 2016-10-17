@@ -1,11 +1,10 @@
-var WINDOW_WIDTH =  window.screen.availWidth;  
-console.log(WINDOW_WIDTH)
-var WINDOW_HEIGHT = window.screen.availHeight; 
+var WINDOW_WIDTH =  1366;  
+var WINDOW_HEIGHT = 643; 
 var RADIUS = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
-var endTime = new Date(2016,9,17,23,59,52);
+var endTime = new Date(2016,9,18,23,59,52);
 var curShowTimeSeconds = 0;
 
 var balls = [];
@@ -13,17 +12,22 @@ var colors = ["#33BE5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB3
 
 window.onload = function(){
 				var can = document.getElementById('can');
+				
+				WINDOW_WIDTH = document.body.clientWidth;
+				WINDOW_HEIGHT = document.body.clientHeight;
+				console.log(WINDOW_WIDTH,WINDOW_HEIGHT)
+				MARGIN_LEFT = Math.round(WINDOW_WIDTH/10);
+				RADIUS = Math.round(WINDOW_WIDTH*4/5/108)-1;
 				if(can.getContext('2d')){
 					var ctx = can.getContext('2d');
+					
 					can.width = WINDOW_WIDTH;
 					can.height = WINDOW_HEIGHT;
-					
 					curShowTimeSeconds = getCurrentShowTimeSeconds();
 					setInterval(function(){
 						
 						render(ctx);
 						update();
-						
 					},50);
 					//render(ctx);
 				}else{
@@ -82,6 +86,16 @@ function updateBalls(){
 			balls[i].vy = -balls[i].vy*0.75;
 		}
 	}
+	var count = 0;//记录有效的球，超过范围的球被pop
+	for (var i = 0; i < balls.length ; i++){
+		if(balls[i].x + RADIUS > 0 && balls[i].x - RADIUS < WINDOW_WIDTH){
+			balls[count++] = balls[i];
+		}
+		
+	}
+	while(balls.length > Math.min(300,count)){
+			balls.pop();
+		}
 }
 
 function render(ctx){
