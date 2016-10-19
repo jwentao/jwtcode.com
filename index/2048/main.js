@@ -71,6 +71,6 @@ function generateOneNumber(){
 	var randNum = Math.random()<0.5?2:4;
 	//随机位置上显示随机数字
 	board[randx][randy] = randNum;
-	showNumberWithAnimation(randx,randy,rendNum);
+	showNumberWithAnimation(randx,randy,randNum);
 	return true;
 }
