@@ -9,7 +9,7 @@ var aneObj=function(){
 
 aneObj.prototype.num=50;
 aneObj.prototype.init=function(){
-	
+	this.num=canWidth/16;
 	for(var i=0;i<this.num;i++){
 		this.rootx[i]=i*16+Math.random()*20;
 		this.headx[i]=this.rootx[i];

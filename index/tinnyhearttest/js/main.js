@@ -1,3 +1,5 @@
+var divContent;
+
 var can1;
 var can2;
 
@@ -45,20 +47,25 @@ function game(){
 	gameloop();
 }
 function init(){
+	divContent=document.getElementById('allcanvas');
+	console.log(divContent.offsetWidth);
 	
 	//获得canvas context
 	can1=document.getElementById("canvas1");
 	ctx1=can1.getContext("2d");
 	can2=document.getElementById("canvas2");
 	ctx2=can2.getContext("2d");
-	
+	can1.width=divContent.offsetWidth;
+	can2.width=divContent.offsetWidth;
+	can1.height=divContent.offsetHeight;
+	can2.height=divContent.offsetHeight;
 	can1.addEventListener('mousemove',onMouseMove,false);
 	
 	bgPic.src="./src/background.jpg";
 	canWidth=can1.width;
 	canHeight=can1.height;
 	
-	ane=new aneObj();
+	ane=new aneObj(canWidth);
 	ane.init();
 	fruit=new fruitObj();
 	fruit.init();
